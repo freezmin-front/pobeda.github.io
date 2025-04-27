@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>футер</title>
+    <style>
+      footer {
+        background-color: #c62828;
+        color: #fff;
+        padding: 40px 0;
+        font-family: "Arial", sans-serif;
+        text-align: left;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #ffffff;
+        margin-bottom: 25px;
+        text-align: center;
+        hyphens: auto;
+        letter-spacing: 0.01em;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-column {
+        flex: 1 1 200px;
+        margin-bottom: 30px;
+        text-align: left;
+      }
+
+      .footer-column h3 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        color: #ffcc80;
+        border-bottom: 2px solid #ef9a9a;
+        padding-bottom: 10px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: #ffe0b2;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: block;
+      }
+
+      .footer-column a:hover {
+        color: #fff;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid #ef9a9a;
+        font-size: 0.9em;
+        color: #ffe0b2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-column {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <ul>
+            <li><a href="./index.html">ГЛАВНАЯ СТРАНИЦА</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3><a href="./history.html">ИСТОРИЯ</a></h3>
+          <ul>
+            <li><a href="./history/eventstime.html">Ключевые события</a></li>
+            <li><a href="./history/chronology.html">Хронология</a></li>
+            <li><a href="./history/musem.html">Музеи</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3><a href="./pobeda.html">ПОБЕДА</a></h3>
+          <ul>
+            <li><a href="./pobeda/cityhero.html">Города-герои</a></li>
+            <li><a href="./pobeda/hero.html">Герои</a></li>
+            <li><a href="./pobeda/pamytobjeckt.html">Памятные объекты</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3><a href="./mulitimedia.html">МУЛЬТИМЕДИА</a></h3>
+          <ul>
+            <li><a href="./mulitimedia/trek.html">Песни</a></li>
+            <li><a href="./mulitimedia/film.html">Фильмы</a></li>
+            <li><a href="./mulitimedia/parad.html">Парады</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© Сайт посявященный 80 летию победы 2025</p>
+      </div>
+    </footer>
+  </body>
+</html>

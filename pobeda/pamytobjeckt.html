@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Памятные объекты</title>
+    <link rel="shortcut icon" href="../icon/ico.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/pobeda.css" />
+
+    <style>
+      section {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: #333;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      /* Стили для модального окна */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        position: relative;
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 800px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+      }
+
+      @keyframes animatetop {
+        from {
+          top: -300px;
+          opacity: 0;
+        }
+        to {
+          top: 10%;
+          opacity: 1;
+        }
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+
+      .modal-description {
+        text-align: left;
+        color: #333;
+        font-size: 1.1em;
+      }
+
+      /* Стили для сетки карточек */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        padding: 0 15px;
+      }
+
+      .card {
+        border: 2px solid #990000;
+        padding: 20px;
+        background-color: #d7bcae;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.9);
+        text-align: center;
+        transition: all 0.3s ease;
+        font-size: 1.1em;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      }
+
+      .card img {
+        max-width: 100%;
+        height: 180px;
+        object-fit: cover;
+        object-position: top;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+
+      .подпись {
+        font-style: italic;
+        color: #660000;
+        font-size: 1.1em;
+      }
+
+      @media (max-width: 900px) {
+        .grid-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../logo/logotip.png" alt="logotip" />
+          </a>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li class="header-nav__li">
+              <a href="../pobeda.html" class="header-nav__link">ПОБЕДА</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="../history.html" class="header-nav__link">ИСТОРИЯ</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="../mulitimedia.html" class="header-nav__link"
+                >МУЛЬТИМЕДИА</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <span></span>
+        </div>
+      </header>
+    </div>
+    <main>
+      <nav class="navbar">
+        <ul>
+          <li class="main-li">
+            <a href="./cityhero.html" class="">ГОРОДА-ГЕРОИ</a>
+          </li>
+          <li class="main-li">
+            <a href="./hero.html" class="">ГЕРОИ</a>
+          </li>
+          <li class="main-li">
+            <a href="./pamytobjeckt.html" class="">ПАМЯТНЫЕ ОБЪЕКТЫ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <section id="плакаты">
+        <h2>ПЛАКАТЫ ВРЕМЁН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</h2>
+        <div class="grid-container">
+          <div class="card" onclick="openModal('плакат1')">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=58a80da941b0f632784985c7d466261b_l-5669278-images-thumbs&n=13"
+              alt="Родина-мать зовет!"
+              title="Родина-мать зовет!"
+            />
+            <p class="подпись">"Родина-мать зовет!"</p>
+          </div>
+
+          <div class="card" onclick="openModal('плакат2')">
+            <img
+              src="https://catalog.shm.ru/api/spf/5SI7MNQFaeGOsW8EFaI0PqYldeObxZf6NkPrK6u9dVrwS4Y6S91D_3nOYJ9e5TlH.webp?w=1000&h=1000"
+              alt="Бей врага!"
+              title="Бей врага!"
+            />
+            <p class="подпись">"Бей врага!"</p>
+          </div>
+
+          <div class="card" onclick="openModal('плакат3')">
+            <img
+              src="https://i1.wp.com/lenin.shm.ru/wp-content/uploads/2020/11/20.jpg?fit=1500%2C1006&ssl=1"
+              alt="Все для фронта! Все для победы!"
+              title="Все для фронта! Все для победы!"
+            />
+            <p class="подпись">"Все для фронта! Все для победы!"</p>
+          </div>
+
+          <div class="card" onclick="openModal('плакат4')">
+            <img
+              src="https://avatars.mds.yandex.net/get-mpic/5221145/img_id6180384411230906825.jpeg/orig"
+              alt="Ты чем помог фронту?"
+              title="Ты чем помог фронту?"
+            />
+            <p class="подпись">"Ты чем помог фронту?"</p>
+          </div>
+
+          <div class="card" onclick="openModal('плакат5')">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=cd9d82074b365ee3702828c875a608f3_l-5285349-images-thumbs&n=13"
+              alt="До последней капли крови!"
+              title="До последней капли крови!"
+            />
+            <p class="подпись">"До последней капли крови!"</p>
+          </div>
+
+          <div class="card" onclick="openModal('плакат6')">
+            <img
+              src="https://www.russianfoodusa.com/images/P/souvenir-1000.png"
+              alt="Слава победителям!"
+              title="Слава победителям!"
+            />
+            <p class="подпись">"Слава победителям!"</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="статуи">
+        <h2>ПАМЯТНИКИ, ПОСВЯЩЕННЫЕ ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЕ</h2>
+        <div class="grid-container">
+          <div class="card" onclick="openModal('статуя1')">
+            <img
+              src="https://stihi.ru/pics/2020/06/01/7789.jpg"
+              alt="Родина-мать зовет! (Мамаев курган)"
+              title="Родина-мать зовет! (Мамаев курган)"
+            />
+            <p class="подпись">"Родина-мать зовет! (Мамаев курган)"</p>
+          </div>
+
+          <div class="card" onclick="openModal('статуя2')">
+            <img
+              src="https://pic.rutubelist.ru/video/0b/e2/0be21ac09674015a58a365cc4b0bbd05.jpg"
+              alt="Воин-освободитель (Трептов-парк)"
+              title="Воин-освободитель (Трептов-парк)"
+            />
+            <p class="подпись">"Воин-освободитель (Трептов-парк)"</p>
+          </div>
+
+          <div class="card" onclick="openModal('статуя3')">
+            <img
+              src="https://avatars.dzeninfra.ru/get-zen_doc/4055701/pub_60cf4a1cc0acaa6a7fd1b6c6_60cf4b5792badd3b0f6710da/scale_1200"
+              alt="Мужество (Брестская крепость)"
+              title="Мужество (Брестская крепость)"
+            />
+            <p class="подпись">"Мужество (Брестская крепость)"</p>
+          </div>
+
+          <div class="card" onclick="openModal('статуя4')">
+            <img
+              src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_666c8414d2313541731cb64b_666c8a60b2757802905bfa20/scale_1200"
+              alt="Памятник Алёше (Мурманск)"
+              title="Памятник Алёше (Мурманск)"
+            />
+            <p class="подпись">"Памятник Алёше (Мурманск)"</p>
+          </div>
+
+          <div class="card" onclick="openModal('статуя5')">
+            <img
+              src="https://img5tv.cdnvideo.ru/shared/files/202305/1_1702998.jpg"
+              alt="Героям-панфиловцам (Подмосковье)"
+              title="Героям-панфиловцам (Подмосковье)"
+            />
+            <p class="подпись">"Героям-панфиловцам, (Подмосковье)"</p>
+          </div>
+
+          <div class="card" onclick="openModal('статуя6')">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=1f836c4bdfababb86294235f4b62c91f_l-4486037-images-thumbs&n=13"
+              alt="Могила Неизвестного Солдата (Москва)"
+              title="Могила Неизвестного Солдата (Москва)"
+            />
+            <p class="подпись">"Могила Неизвестного Солдата (Москва)"</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="плакат1Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат1')">&times;</span>
+        <img
+          src="https://stihi.ru/pics/2024/05/09/2343.jpg"
+          alt="Родина-мать зовет!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Родина-мать зовет!</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Ираклий Тоидзе<br />
+          <b>Год создания:</b> 1941<br />
+          <b>Значение:</b> Плакат призывает советских граждан встать на защиту
+          Родины от немецко-фашистских захватчиков. Образ Родины-матери стал
+          одним из самых узнаваемых символов Великой Отечественной войны.<br />
+          <b>Посвящен:</b> Мобилизации населения для отпора врагу в первые дни
+          войны.
+        </p>
+      </div>
+    </div>
+
+    <div id="плакат2Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат2')">&times;</span>
+        <img
+          src="https://armedman.ru/wp-content/uploads/2015/02/Bey-vraga-kak-ego-bili-ottsyi-i-starshie-bratya-matrosyi-oktyabrya.jpg"
+          alt="Бей врага!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Бей врага!</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Виктор Корецкий<br />
+          <b>Год создания:</b> 1941<br />
+          <b>Значение:</b> Плакат выражает решимость советских воинов уничтожать
+          врага на поле боя, защищая свою землю и народ.<br />
+          <b>Посвящен:</b> Героизму советских солдат и офицеров в боях с
+          немецкими захватчиками.
+        </p>
+      </div>
+    </div>
+
+    <div id="плакат3Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат3')">&times;</span>
+        <img
+          src="https://i1.wp.com/lenin.shm.ru/wp-content/uploads/2020/11/20.jpg?fit=1500%2C1006&ssl=1"
+          alt="Все для фронта! Все для победы!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Все для фронта! Все для победы!</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Дмитрий Шмаринов<br />
+          <b>Год создания:</b> 1941<br />
+          <b>Значение:</b> Призыв к труженикам тыла мобилизовать все силы для
+          обеспечения фронта всем необходимым: оружием, продовольствием,
+          техникой.<br />
+          <b>Посвящен:</b> Трудовому подвигу советского народа в тылу.
+        </p>
+      </div>
+    </div>
+
+    <div id="плакат4Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат4')">&times;</span>
+        <img
+          src="https://avatars.mds.yandex.net/i?id=cd9d82074b365ee3702828c875a608f3_l-5285349-images-thumbs&n=13"
+          alt="Ты чем помог фронту?"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Ты чем помог фронту?</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Д. Моор<br />
+          <b>Год создания:</b> 1941<br />
+          <b>Значение:</b> Плакат апеллирует к совести каждого гражданина,
+          побуждая его задуматься о своем вкладе в общее дело победы.<br />
+          <b>Посвящен:</b> Мобилизации ресурсов и усилий всего населения на
+          поддержку фронта.
+        </p>
+      </div>
+    </div>
+
+    <div id="плакат5Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат5')">&times;</span>
+        <img
+          src="https://avatars.mds.yandex.net/i?id=cd9d82074b365ee3702828c875a608f3_l-5285349-images-thumbs&n=13"
+          alt="До последней капли крови!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">До последней капли крови!</h3>
+        <p class="modal-description">
+          <b>Автор:</b> И. Тоидзе<br />
+          <b>Год создания:</b> 1941<br />
+          <b>Значение:</b> Выражает готовность советских воинов сражаться до
+          конца, не щадя своей жизни, за свободу и независимость Родины.<br />
+          <b>Посвящен:</b> Самоотверженности советских солдат в борьбе с врагом.
+        </p>
+      </div>
+    </div>
+
+    <div id="плакат6Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('плакат6')">&times;</span>
+        <img
+          src="https://www.russianfoodusa.com/images/P/souvenir-1000.png"
+          alt="Слава победителям!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Слава победителям!</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Л. Голованов<br />
+          <b>Год создания:</b> 1945<br />
+          <b>Значение:</b> Торжественный плакат, прославляющий советских
+          воинов-победителей, вернувшихся с фронта.<br />
+          <b>Посвящен:</b> Победе советского народа в Великой Отечественной
+          войне.
+        </p>
+      </div>
+    </div>
+    <div id="статуя1Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя1')">&times;</span>
+        <img
+          src="https://sun9-77.userapi.com/impg/J8qY9MrUn1ktix5nRM5GF9NVvoEPhzdiRFSaqw/FAjaoSeJygM.jpg?size=1400x937&quality=95&sign=ac96f01329ed708d289547e92ee1d6e9&c_uniq_tag=QKHqRNkVkz3jawNlgLeN0RWwQLIkTxVi7W51yzzxW2k&type=album"
+          alt="Родина-мать зовет!"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Родина-мать зовет! (Мамаев курган)</h3>
+        <p class="modal-description">
+          <b>Авторы:</b> Евгений Вучетич, Николай Никитин<br />
+          <b>Год открытия:</b> 1967<br />
+          <b>Значение:</b> Центральная фигура мемориального комплекса "Героям
+          Сталинградской битвы" на Мамаевом кургане в Волгограде. Символизирует
+          призыв к защите Родины.<br />
+          <b>Посвящен:</b> Героям Сталинградской битвы.
+        </p>
+      </div>
+    </div>
+    <div id="статуя2Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя2')">&times;</span>
+        <img
+          src="https://pic.rutubelist.ru/video/0b/e2/0be21ac09674015a58a365cc4b0bbd05.jpg"
+          alt="Воин-освободитель"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Воин-освободитель</h3>
+        <p class="modal-description">
+          <b>Автор:</b> Евгений Вучетич<br />
+          <b>Год открытия:</b> 1949<br />
+          <b>Значение:</b> Памятник советскому солдату с девочкой на руках в
+          Трептов-парке в Берлине. Символизирует освобождение Европы от
+          фашизма.<br />
+          <b>Посвящен:</b> Советским солдатам, освободившим Европу от нацизма.
+        </p>
+      </div>
+    </div>
+    <div id="статуя3Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя3')">&times;</span>
+        <img
+          src="https://avatars.dzeninfra.ru/get-zen_doc/4055701/pub_60cf4a1cc0acaa6a7fd1b6c6_60cf4b5792badd3b0f6710da/scale_1200"
+          alt="Мужество"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Мужество</h3>
+        <p class="modal-description">
+          <b>Авторы:</b> А. Кибальников, В. Сысоев, А. Стахович<br />
+          <b>Год открытия:</b> 1971<br />
+          <b>Значение:</b> Главный монумент мемориального комплекса "Брестская
+          крепость-герой". Выражает несгибаемую волю и мужество защитников
+          крепости.<br />
+          <b>Посвящен:</b> Героической обороне Брестской крепости в 1941 году.
+        </p>
+      </div>
+    </div>
+    <div id="статуя4Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя4')">&times;</span>
+        <img
+          src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_666c8414d2313541731cb64b_666c8a60b2757802905bfa20/scale_1200"
+          alt="Алёша"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Алёша</h3>
+        <p class="modal-description">
+          <b>Автор:</b> И. Бродский<br />
+          <b>Год открытия:</b> 1974<br />
+          <b>Значение:</b> Памятник советскому солдату-освободителю в Мурманске.
+          Символизирует память о павших воинах и признательность за их
+          подвиг.<br />
+          <b>Посвящен:</b> Советским воинам, защищавшим Заполярье в годы Великой
+          Отечественной войны.
+        </p>
+      </div>
+    </div>
+    <div id="статуя5Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя5')">&times;</span>
+        <img
+          src="https://img5tv.cdnvideo.ru/shared/files/202305/1_1702998.jpg"
+          alt="Письмо с фронта"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Мемориал «Героям-панфиловцам»</h3>
+        <p class="modal-description">
+          <b>Авторы:</b> Н. Криволапов, И. Минин<br />
+          <b>Год открытия:</b> 2010<br />
+          <b>Значение:</b> Скульптурная композиция, посвященная связи фронта и
+          тыла, в Курске. Отражает тоску по дому и ожидание вестей с фронта.<br />
+          <b>Посвящен:</b> Всем, кто ждал вестей с фронта в годы войны.
+        </p>
+      </div>
+    </div>
+    <div id="статуя6Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('статуя6')">&times;</span>
+        <img
+          src="https://avatars.mds.yandex.net/i?id=1f836c4bdfababb86294235f4b62c91f_l-4486037-images-thumbs&n=13"
+          alt="Могила Неизвестного Солдата"
+          class="modal-image"
+        />
+        <h3 class="modal-title">Могила Неизвестного Солдата</h3>
+        <p class="modal-description">
+          <b>Архитекторы:</b> Д. Бурдин, В. Климов, Ю. Рабаев<br />
+          <b>Год открытия:</b> 1967<br />
+          <b>Значение:</b> Мемориальный архитектурный ансамбль у Кремлёвской
+          стены в Москве. Символизирует память обо всех советских воинах, павших
+          в боях за Родину, чьи имена остались неизвестными.<br />
+          <b>Посвящен:</b> Всем неизвестным солдатам, отдавшим свои жизни за
+          Родину.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Функция открытия модального окна
+      function openModal(modalId) {
+        document.getElementById(modalId + "Modal").style.display = "block";
+      }
+
+      // Функция закрытия модального окна
+      function closeModal(modalId) {
+        document.getElementById(modalId + "Modal").style.display = "none";
+      }
+
+      // Закрытие модального окна при клике вне его
+      window.onclick = function (event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.style.display = "none";
+        }
+      };
+    </script>
+
+    <div id="footer"></div>
+    <script>
+      fetch("../footer.html")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          return response.text();
+        })
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    </script>
+
+    <script src="../script/pobeda.js"></script>
+  </body>
+</html>

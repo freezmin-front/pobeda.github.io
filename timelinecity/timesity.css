@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ffaf38;
+    color: #fff;
+    padding: 1em; 
+    text-align: center; 
+    display: flex;        
+    align-items: center;   
+    justify-content: space-between;
+}
+
+h1, h2, h3 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+#plans table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+#plans th, #plans td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#plans th {
+    background-color: #f0f0f0;
+}
+
+#quote {
+    background-color: #eee;
+    text-align: center;
+    padding: 2em;
+}
+
+.quote-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.attribution {
+    font-size: 0.9em;
+    color: #666;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px #000;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #d35400;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 2em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin: 1em auto; 
+}
+
+#introduction img, #quote img {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; 
+}
+
+.back-button:hover {
+    background-color: #861603; 
+}

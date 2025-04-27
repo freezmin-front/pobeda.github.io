@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Музеи</title>
+    <link rel="shortcut icon" href="../icon/ico.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="./histor.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+      body {
+        margin: 0;
+        background-color: #f8f8f8;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .overlay {
+        background: radial-gradient(
+          circle,
+          rgba(166, 61, 61, 1) 0%,
+          rgba(205, 108, 39, 1) 100%
+        );
+        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        z-index: -2;
+      }
+
+      .container-musem {
+        max-width: 960px;
+        margin-left: 450px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .museum-item {
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #fff;
+        display: flex;
+        align-items: stretch;
+        position: relative;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .museum-item:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+      }
+
+      .museum-item img {
+        max-width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .museum-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .museum-name {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #34495e;
+        margin-bottom: 3px;
+      }
+
+      .museum-description {
+        font-size: 0.9em;
+        color: #555;
+        line-height: 1.4;
+      }
+
+      .museum-address {
+        font-size: 0.85em;
+        color: #777;
+        font-style: italic;
+      }
+
+      .button {
+        padding: 8px 16px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9em;
+        align-self: flex-end;
+      }
+
+      .button:hover {
+        background-color: #2980b9;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          margin: 20px;
+          padding: 15px;
+        }
+
+        h1 {
+          font-size: 1.8em;
+          margin-bottom: 20px;
+        }
+
+        .museum-item {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .museum-item img {
+          margin-right: 0;
+          margin-bottom: 15px;
+          max-width: 100%;
+          height: auto;
+        }
+
+        .museum-content {
+          text-align: center;
+        }
+
+        .button {
+          position: static;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../logo/logotip.png" alt="logotip" />
+          </a>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li class="header-nav__li">
+              <a href="../pobeda.html" class="header-nav__link">ПОБЕДА</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="../history.html" class="header-nav__link">ИСТОРИЯ</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="../mulitimedia.html" class="header-nav__link"
+                >МУЛЬТИМЕДИА</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <span></span>
+        </div>
+      </header>
+    </div>
+    <main>
+      <nav class="navbar">
+        <ul>
+          <li class="main-li">
+            <a href="./eventstime.html" class="">КЛЮЧЕВЫЕ СОБЫТИЯ</a>
+          </li>
+          <li class="main-li">
+            <a href="./chronology.html" class="">ХРОНОЛОГИЯ</a>
+          </li>
+          <li class="main-li">
+            <a href="./musem.html" class="">МУЗЕИ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="overlay">
+        <!-- Фон-подложка -->
+        <div class="container-musem">
+          <h1>Военные музеи посвященные Великой отечественной войне</h1>
+
+          <div class="museum-item">
+            <img
+              src="https://cdn.culture.ru/c/479421.jpg"
+              alt="Прохоровское поле"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Государственный военно-исторический музей-заповедник
+                «Прохоровское поле»
+              </div>
+              <p class="museum-description">
+                В 1995 году был открыт музей-заповедник на танковом поле. Здесь
+                посетители могут оценить красоту и величие мемориальных
+                сооружений и памятников, а также выставку бронетехники Великой
+                Отечественной войны. На предмузейной площади расположена...
+              </p>
+              <div class="museum-address">
+                Белгородская обл, пгт Прохоровка, ул Парковая, д 47
+              </div>
+              <a
+                href="https://прохоровское-поле.рф/"
+                class="button"
+                target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://avatars.dzeninfra.ru/get-zen_doc/5324345/pub_62c8416f314a0b3c3e0cae3c_635aae0f94c4c929b00c7192/scale_1200"
+              alt="Бородинский заповедник"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Бородинский военно-исторический музей-заповедник
+              </div>
+              <p class="museum-description">
+                Сегодня Бородинское поле — это место памяти, где приходят
+                многочисленные туристы и паломники, чтобы почтить память героев
+                Отечественной войны 1812 года. Музей-заповедник «Бородинское
+                поле» — старейший в мире музей на поле битвы, основанный в
+                1839...
+              </p>
+              <div class="museum-address">
+                Московская обл., Можайский р-н., д. Бородино
+              </div>
+              <a href="https://www.borodino.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://www.donland.ru/upload/uf/58c/sambek-11-panorama.jpg"
+              alt="Самбекские высоты"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Военно-исторический музейный комплекс «Самбекские высоты»
+              </div>
+              <p class="museum-description">
+                Народный военно-исторический музейный комплекс «Самбекские
+                высоты» был создан по инициативе ветеранских и общественных
+                организаций при поддержке губернатора Ростовской области.
+                Занимаемая им территория составляет почти 14 гектаров....
+              </p>
+              <div class="museum-address">
+                Ростовская обл, Неклиновский р-н, с Самбек
+              </div>
+              <a href="https://самбек.рф/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://sun9-85.userapi.com/impg/1YFXEVgPq2F6rg6-rZV5b39yDMLlRoR1IXL1KA/Q-oK19_bX-8.jpg?size=604x340&quality=96&sign=1900b6cc146e068c469496b778e3aec6&type=album"
+              alt="Центральный музей Вооруженных сил"
+            />
+            <div class="museum-content">
+              <div class="museum-name">Центральный музей Вооруженных сил</div>
+              <p class="museum-description">
+                Центральный музей Вооруженных Сил РФ - один из крупнейших
+                военно-исторических музеев мира. В его коллекции насчитывается
+                более миллиона экспонатов, отражающих историю российской армии
+                от древних времен до наших дней. Здесь можно увидеть образцы
+                оружия, военной техники, знамёна, награды, фотографии и
+                документы, связанные с важнейшими событиями военной истории
+                России. Особое внимание уделено периоду Великой Отечественной
+                войны.
+              </p>
+              <div class="museum-address">Москва, ул. Советской Армии, 2</div>
+              <a href="http://www.cmaf.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://www.mos.ru/upload/newsfeed/afisha/706c851e4f4f06f4bf2cb99fad8f022b/2.jpeg"
+              alt="Музей Победы"
+            />
+            <div class="museum-content">
+              <div class="museum-name">Музей Победы</div>
+              <p class="museum-description">
+                Музей Победы - крупнейший в России музейный комплекс,
+                посвященный Великой Отечественной войне 1941-1945 гг. В
+                экспозиции музея представлены диорамы, рассказывающие о ключевых
+                битвах войны, галерея памяти и скорби, а также выставка военной
+                техники и вооружения. Музей является центром патриотического
+                воспитания и местом проведения торжественных мероприятий,
+                посвященных Дню Победы.
+              </p>
+              <div class="museum-address">Москва, Площадь Победы, 3</div>
+              <a href="https://victorymuseum.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=ceb18fe7187bacd795c538a601dd7e8b_l-5141109-images-thumbs&n=13"
+              alt="Центральный военно-морской музей"
+            />
+            <div class="museum-content">
+              <div class="museum-name">Центральный военно-морской музей</div>
+              <p class="museum-description">
+                Центральный военно-морской музей - один из старейших и
+                крупнейших морских музеев мира, основанный в 1709 году. В его
+                коллекции представлены модели кораблей, оружие, навигационные
+                приборы, морские флаги и документы, рассказывающие об истории
+                российского флота от Петра I до наших дней. Экспозиция музея
+                охватывает различные периоды развития флота, включая эпоху
+                парусного флота, время паровых судов и современные атомные
+                корабли.
+              </p>
+              <div class="museum-address">
+                Санкт-Петербург, Площадь Труда, 5
+              </div>
+              <a href="https://navalmuseum.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=dd9c7e71c5c9e1c6204e60eb0a014cf6_l-5878417-images-thumbs&n=13"
+              alt="Музей истории танка Т-34"
+            />
+            <div class="museum-content">
+              <div class="museum-name">Музей истории танка Т-34</div>
+              <p class="museum-description">
+                Музей истории танка Т-34 посвящен легендарному советскому танку
+                Т-34, сыгравшему важную роль в победе в Великой Отечественной
+                войне. В экспозиции музея представлены различные модификации
+                танка Т-34, а также фотографии, документы и личные вещи
+                танкистов. Посетители могут узнать об истории создания танка,
+                его технических характеристиках и боевом применении.
+              </p>
+              <div class="museum-address">
+                Московская область, д. Шолохово, Дмитровское шоссе
+              </div>
+              <a href="https://museum-t-34.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://img51994.pobeda.tv/img/2021-11-29/fmt_117_24_photo-2021-12-03-12-57-21.jpg"
+              alt="Музей военной техники Вадима Задорожного"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Музей военной техники Вадима Задорожного
+              </div>
+              <p class="museum-description">
+                Музей техники Вадима Задорожного - один из крупнейших частных
+                музеев военной техники в России. В его коллекции представлены
+                сотни экспонатов, включая танки, самолеты, автомобили,
+                артиллерийские орудия и другую военную технику времен Второй
+                мировой войны и более позднего периода. Многие экспонаты
+                находятся в отличном состоянии и принимают участие в
+                военно-исторических реконструкциях.
+              </p>
+              <div class="museum-address">
+                Московская область, Красногорский р-н, п. Архангельское
+              </div>
+              <a href="https://tmuseum.ru/" class="button" target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=cd19f8bd98303f100c9a6d65718e5804_l-12481490-images-thumbs&n=13"
+              alt="Музей под открытым небом «Линия Сталина»"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Музей под открытым небом «Линия Сталина»
+              </div>
+              <p class="museum-description">
+                Историко-культурный комплекс "Линия Сталина" - это
+                военно-исторический музей под открытым небом, представляющий
+                собой воссозданный участок советской оборонительной линии времен
+                Великой Отечественной войны. На территории комплекса расположены
+                доты, траншеи, окопы и другие фортификационные сооружения, а
+                также образцы военной техники и вооружения. Посетители могут
+                увидеть реконструкцию боев и познакомиться с историей обороны
+                Советского Союза.
+              </p>
+              <div class="museum-address">
+                Минское шоссе (разные локации вдоль шоссе)
+              </div>
+              <a
+                href="https://stalin-line.by/?utm_referer=https%3A//tripvenue.ru/afisha/festival-bagration-0"
+                class="button"
+                target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+
+          <div class="museum-item">
+            <img
+              src="https://avatars.mds.yandex.net/get-altay/10767865/2a0000018c198044912c6032cc71a8c22027/XXL_height"
+              alt="Военно-исторический музей артиллерии, инженерных войск и войск связи"
+            />
+            <div class="museum-content">
+              <div class="museum-name">
+                Военно-исторический музей артиллерии, инженерных войск и войск
+                связи
+              </div>
+              <p class="museum-description">
+                Военно-исторический музей артиллерии, инженерных войск и войск
+                связи - один из крупнейших военных музеев мира. Его коллекция
+                насчитывает более 850 тысяч экспонатов, включая артиллерийские
+                орудия, ракетные установки, инженерную технику, средства связи и
+                другое военное имущество. Музей расположен в историческом здании
+                Кронверка Петропавловской крепости и рассказывает об истории
+                развития русской и советской артиллерии, инженерных войск и
+                войск связи.
+              </p>
+              <div class="museum-address">Санкт-Петербург, Кронверк, 7</div>
+              <a
+                href="https://www.artillery-museum.ru/"
+                class="button"
+                target="_blank"
+                >Перейти на сайт</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="footer"></div>
+    <script>
+      fetch("../footer.html")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          return response.text();
+        })
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    </script>
+
+    <script src="./histor.js"></script>
+  </body>
+</html>
